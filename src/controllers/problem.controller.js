@@ -1,41 +1,57 @@
 const { StatusCodes}= require('http-status-codes')
+const BadRequest = require('../errors/badrequest.error')
 
 
 function pingController(req,res) {
     return res.json({message: "Ping COntroller is Up"})
 }
 
-function addProblem(req, res) {
+function addProblem(req, res,next) {
 
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message:"Not Implemented"
-    })
+    try{
+        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+    }
+    catch(error){
+        next(error)
+    }
 
 }
 
 function getProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message:"Not Implemented"
-    })
+    try{
+        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+    }
+    catch(error){
+        next(error)
+    }
 }
 
 function getProblems(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message:"Not Implemented"
-    })
+    try{
+        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+    }
+    catch(error){
+        next(error)
+    }
 
 }
 
 function deleteProblem(req, res) {
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message:"Not Implemented"
-    })
+    try{
+        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+    }
+    catch(error){
+        next(error)
+    }
 
 }
 function updateProblem(req, res){
-    return res.status(StatusCodes.NOT_IMPLEMENTED).json({
-        message:"Not Implemented"
-    })
+    try{
+        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+    }
+    catch(error){
+        next(error)
+    }
 
 }
 
