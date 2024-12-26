@@ -2,7 +2,7 @@ const { StatusCodes}= require('http-status-codes')
 const BadRequest = require('../errors/badrequest.error')
 
 
-function pingController(req,res) {
+function pingController(req,res,next) {
     return res.json({message: "Ping COntroller is Up"})
 }
 
@@ -17,7 +17,7 @@ function addProblem(req, res,next) {
 
 }
 
-function getProblem(req, res) {
+function getProblem(req, res,next) {
     try{
         throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
     }
@@ -26,7 +26,7 @@ function getProblem(req, res) {
     }
 }
 
-function getProblems(req, res) {
+function getProblems(req, res,next) {
     try{
         throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
     }
@@ -45,7 +45,7 @@ function deleteProblem(req, res) {
     }
 
 }
-function updateProblem(req, res){
+function updateProblem(req, res,next){
     try{
         throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
     }
