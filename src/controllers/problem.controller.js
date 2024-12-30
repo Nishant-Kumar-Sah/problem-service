@@ -18,7 +18,7 @@ async function addProblem(req,res,next) {
             error: {},
             data: newproblem
         })
-        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+        
     }
     catch(error){
         next(error);
@@ -35,7 +35,7 @@ async function getProblem(req, res,next) {
             error: {},
             data: problem
         })
-        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+        
     }
     catch(error){
         next(error)
@@ -51,7 +51,6 @@ async function getAllProblems(req, res,next) {
             error: {},
             data: allProblems
         })
-        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
     }
     catch(error){
         next(error)
@@ -59,18 +58,30 @@ async function getAllProblems(req, res,next) {
 
 }
 
-function deleteProblem(req, res) {
+async function deleteProblem(req, res, next) {
     try{
-        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+        const deleteProblem = await problemService.deleteProblem(req.params.id);
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message: "Problem deleted successfully",
+            error: {},
+            data: deleteProblem
+        })
     }
     catch(error){
         next(error)
     }
 
 }
-function updateProblem(req, res,next){
+async function updateProblem(req, res,next){
     try{
-        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+        const updatedProblem = await problemService.updateProblem(req.params.id, req.body);
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message: "Problem updated successfully",
+            error: {},
+            data: updatedProblem
+        })
     }
     catch(error){
         next(error)
