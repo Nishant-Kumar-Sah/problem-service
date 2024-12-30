@@ -73,9 +73,15 @@ async function deleteProblem(req, res, next) {
     }
 
 }
-function updateProblem(req, res,next){
+async function updateProblem(req, res,next){
     try{
-        throw new BadRequest("Problem Statement",{missing:["Problem statement missing"]})
+        const updatedProblem = await problemService.updateProblem(req.params.id, req.body);
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message: "Problem updated successfully",
+            error: {},
+            data: updatedProblem
+        })
     }
     catch(error){
         next(error)
