@@ -1,5 +1,7 @@
+const { Logger } = require('winston');
 const NotFoundError = require('../errors/notFoundError');
-const {Problem} =require('../models')
+const {Problem} =require('../models');
+const logger = require('../config/logger.config');
 
 class ProblemRepository{
 
@@ -42,6 +44,7 @@ class ProblemRepository{
         try{
             const problem = await Problem.findByIdAndDelete(id)
             if(!problem)
+                logger.warn(`Problem with id:  ${id} not found in the database`)
                 throw new NotFoundError("Problem", id);
             return problem;
         }catch (error) {
