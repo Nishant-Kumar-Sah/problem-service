@@ -18,7 +18,10 @@ allowedTransports.push(new winston.transports.MongoDB({
     db: LOG_DB_URL,
     collection: 'logs'
 }))
-
+//Transport for file logging
+allowedTransports.push(new winston.transports.File({
+    filename: 'error.log',
+}));
 
 const logger = winston.createLogger({
     format:winston.format.combine(
