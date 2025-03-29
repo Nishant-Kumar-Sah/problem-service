@@ -1,8 +1,7 @@
 const { Logger } = require('winston');
-const NotFoundError = require('../errors/notFoundError');
 const {Problem} =require('../models');
 const logger = require('../config/logger.config');
-
+const Error = require('../errors/index');
 class ProblemRepository{
 
     async createProblem(problemData) {
@@ -34,8 +33,11 @@ class ProblemRepository{
     async getProblem(id) {
         try {
             const problem = await Problem.findById(id);
-            if(!problem)
-                throw new NotFoundError("Problem", id);
+            if(!problem){
+                logger.error(`Problem with id:  ${id} not found in the database`)
+                throw new Error.NotFoundError("Problem", id);
+            }
+            logger.info(`Problem with id: ${id} present in the database`)
             return problem; 
         }catch (error) {
             console.log(error)
@@ -45,9 +47,10 @@ class ProblemRepository{
     async deleteProblem(id) {
         try{
             const problem = await Problem.findByIdAndDelete(id)
-            if(!problem)
+            if(!problem){
                 logger.error(`Problem with id:  ${id} not found in the database`)
-                throw new NotFoundError("Problem", id);
+                throw new Error.NotFoundError("Problem", id);
+            }
             return problem;
         }catch (error) {
             console.log(error)
