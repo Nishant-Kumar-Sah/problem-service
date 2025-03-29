@@ -1,4 +1,6 @@
 const sanitizeMarkdownContent = require("../utils/markdownSanitizer");
+const logger = require('../config/logger.config');
+const Error = require('../errors/index');
 
 class ProblemService {
     constructor(problemRepository) {
@@ -20,8 +22,15 @@ class ProblemService {
         
     }
     async getProblem(id) {
-            const problem = await this.problemRepository.getProblem(id);
-            return problem;
+            try {
+                const problem = await this.problemRepository.getProblem(id);
+                logger.info(`Successfully fetched problem with problem id :${id}`)
+                return problem;
+            }
+            catch{
+                logger.error(`Unable to fetch problem with problem id : ${id}`)
+                throw new Error.NotFoundError("Problem", id);
+            }
     }
     async deleteProblem(id) {
         const problem = await this.problemRepository.deleteProblem(id);
