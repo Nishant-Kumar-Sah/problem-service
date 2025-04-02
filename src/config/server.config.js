@@ -6,6 +6,10 @@ module.exports = {
     PORT: process.env.PORT || 3000,
     ATLAS_DB_URL: process.env.ATLAS_DB_URL,
     LOG_DB_URL: process.env.LOG_DB_URL,
-    NODE_ENV:process.env.NODE_ENV || 'development', 
+    NODE_ENV:process.env.NODE_ENV,
+    PROBLEM_ADMIN_SERVICE_URL: process.env.PROBLEM_ADMIN_SERVICE,
+    SOCKET_SERVICE_URL:process.env.SOCKET_SERVICE,
+    EVALUATOR_SERVICE_URL:process.env.EVALUATOR_SERVICE,
+    SUBMISSION_SERVICE_URL:process.env.SUBMISSION_SERVICE
 
 };
