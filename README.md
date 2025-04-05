@@ -35,7 +35,7 @@ This microservice is responsible for managing coding problems in a larger coding
 | GET    | `/api/problems/:id`   | Get problem by ID    |
 | PUT    | `/api/problems/:id`   | Update problem       |
 | GET    | `/api/problems`       | Get all problems     |
-| DELETE | `/api/problems/:id    | Delete problem by ID |
+| DELETE | `/api/problems/:id`    | Delete problem by ID |
 
 ---
 
