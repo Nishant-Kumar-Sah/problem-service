@@ -39,6 +39,9 @@ This microservice is responsible for managing coding problems in a larger coding
 
 ---
 
+## Architecture Diagram 
+![image](https://github.com/user-attachments/assets/a58e4823-22d0-4d2f-b33a-0f7229632683)
+
 
 ## ✨ Running Locally
 
