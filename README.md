@@ -31,11 +31,11 @@ This microservice is responsible for managing coding problems in a larger coding
 | Method | Endpoint              | Description          |
 |--------|-----------------------|----------------------|
 | GET    | `/ping`               | Health check         |
-| POST   | `/api/problems`       | Create a new problem |
-| GET    | `/api/problems/:id`   | Get problem by ID    |
-| PUT    | `/api/problems/:id`   | Update problem       |
-| GET    | `/api/problems`       | Get all problems     |
-| DELETE | `/api/problems/:id`    | Delete problem by ID |
+| POST   | `/api/v1/problems`       | Create a new problem |
+| GET    | `/api/v1/problems/:id`   | Get problem by ID    |
+| PUT    | `/api/v1/problems/:id`   | Update problem       |
+| GET    | `/api/v1/problems`       | Get all problems     |
+| DELETE | `/api/v1/problems/:id`    | Delete problem by ID |
 
 ---
 
